@@ -314,13 +314,132 @@ Successfully implemented and tested the Day 4 advanced features, including cachi
 
 The application is ready for the next development phase, subject to final verification of database migrations and deployment configuration.
 
+# Day 5 – Final Testing, Dockerization & Deployment Preparation
+
+## Overview
+
+Day 5 focused on finalizing the Document Management & Secure File Sharing System by performing application testing, reviewing API documentation, configuring Docker, managing environment variables, and preparing the project for GitHub deployment.
+
+## Tasks Completed
+
+### 1. Unit Testing and Integration Testing
+- Implemented and executed automated tests using Pytest.
+- Tested authentication and authorization.
+- Tested document upload and management APIs.
+- Verified Role-Based Access Control (RBAC).
+- Tested invalid requests and unauthorized access.
+- Verified API error responses.
+
+**Test Result:** 22 tests passed successfully.
+
+### 2. Swagger and OpenAPI Documentation
+- Reviewed FastAPI Swagger UI.
+- Verified OpenAPI JSON schema.
+- Checked API endpoints and request/response documentation.
+- Verified multiple file upload documentation.
+
+Swagger UI:
+
+`http://localhost:8000/docs`
+
+OpenAPI JSON:
+
+`http://localhost:8000/openapi.json`
+
+### 3. Docker Configuration
+
+Created a Dockerfile to containerize the FastAPI application.
+
+Configured Docker Compose with three services:
+
+| Service | Technology | Purpose |
+|---|---|---|
+| Web | FastAPI | Backend application |
+| Database | MySQL 8.4 | Data storage |
+| Cache | Redis 7 | Caching |
+
+### 4. Environment Variables and Secrets
+- Configured environment variables using `.env`.
+- Stored database credentials separately from application code.
+- Configured Docker Compose environment variables.
+- Excluded `.env` from Git using `.gitignore`.
+
+### 5. Database Migration and Startup Verification
+- Configured Alembic database migrations.
+- Executed migrations during Docker application startup.
+- Verified MySQL container health.
+- Verified Redis container health.
+- Verified FastAPI container startup.
+
+### 6. Docker Commands
+
+**Build Docker images:**
+
+```bash
+docker compose build
+```
+
+**Start all services:**
+
+```bash
+docker compose up -d
+```
+
+**Stop all services:**
+
+```bash
+docker compose stop
+```
+
+**Start stopped services:**
+
+```bash
+docker compose start
+```
+
+**Check container status:**
+
+```bash
+docker compose ps
+```
+
+**View application logs:**
+
+```bash
+docker compose logs web --tail 100
+```
+
+### 7. API Verification
+- Started the application using Docker Compose.
+- Accessed Swagger UI through the browser.
+- Verified the OpenAPI endpoint.
+- Confirmed the application was accessible through port 8000.
+
+## Final Deliverables
+
+- Automated test suite with 22 passing tests.
+- FastAPI Swagger and OpenAPI documentation.
+- Dockerfile.
+- Docker Compose configuration.
+- MySQL and Redis container configuration.
+- Environment variable configuration.
+- Alembic migration integration.
+- GitHub-ready project structure.
+
+## Conclusion
+
+Successfully completed Day 5 activities for the Document Management & Secure File Sharing System. The project has been tested with 22 passing tests, containerized using Docker, and prepared for deployment.
+
+**Project Status:** Day 5 implementation and Docker setup completed. GitHub publication and production deployment should be verified separately.
+
+
 ## Project Progress
 
 - Day 1: Authentication & User Management — Completed
 - Day 2: File Upload & Document Management — Completed
 - Day 3: RBAC & Secure Document Sharing — Completed
 - Day 4: Audit Logs & Activity Tracking — Completed
-- Day 5: Testing, Security Improvements & Docker — Pending
+- Day 5: Testing, Security Improvements & Docker — Completed
 
 
 
